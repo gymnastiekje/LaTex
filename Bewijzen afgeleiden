@@ -5,6 +5,9 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[fleqn]{amsmath}
 \usepackage{geometry}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\usepackage{cancel}
 \geometry{a4paper,total={170mm,257mm},left=20mm,top=20mm,}
 
 
@@ -71,7 +74,6 @@ $f:y=\sec x$
 
 \subsection*{\color{Green}Logaritmische afgeleiden}
 \subsubsection*{\color{WildStrawberry}Hulpeigenschap}
-
 \begin{flalign*}
     &\forall a \in \mathbb{R}_0^+\setminus\{1\} : \lim_{x\rightarrow0} \frac{\log_a(1+x)}{x} = \frac{1}{\ln a}&
 \end{flalign*}
@@ -119,7 +121,49 @@ $f:y=\cosh x$
    Df(x) & = D\left(\frac{e^x+e^{-x}}{2}\right)&\\
         & = \frac{1}{2}\cdot e^x-e^{-x}\\
         & = \frac{e^x-e^{-x}}{2}\\
-        & = \sinh x
+        & = \sinh x\\
 \end{flalign*}
+
+$f:y=\tanh x$
+\begin{flalign*}
+    Df(x) & = D\left(\frac{e^x-e^{-x}}{e^x+e^{-x}}\right)&\\
+        & = \frac{\left(e^x+e^{-x}\right)\left(e^x+e^{-x}\right)-\left(e^x-e^{-x}\right)\left(e^x-e^{-x}\right)}{\left(e^x+e^{-x}\right)^2}\\
+        & = \frac{\left(e^x+e^{-x}\right)^2-\left(e^x-e^{-x}\right)^2}{\left(e^x+e^{-x}\right)^2} \qquad {\color{Gray}a^2-b^2=(a-b)\cdot(a+b)}\\
+        & = \frac{\left(\cancel{e^x}+e^{-x}\cancel{-e^x}+e^{-x}\right)\cdot\left(e^x+\cancel{e^{-x}}+e^x\cancel{-e^{-x}}\right)}{\left(e^x+e^{-x}\right)^2}\\
+        & = \frac{2\cdot e^{-x}\cdot2\cdot e^x}{\left(e^x+e^{-x}\right)^2} = \frac{4}{\left(e^x+e^{-x}\right)^2} = \frac{2^2}{\left(e^x+e^{-x}\right)^2}\\
+        & = \left(\frac{2}{e^x+e^{-x}}\right)^2\\
+        & = \left(\frac{1}{\cosh x}\right)^2\\
+        & = \sech^2 x\\
+\end{flalign*}
+\begin{flalign*}
+    Df(x) & = D\left(\frac{\sinh x}{\cosh x}\right)&\\
+        & = \frac{\cosh x\cdot\cosh x-\sinh x\cdot\sinh x}{\cosh^2 x}\\
+        & = \frac{\cosh^2 x -\sinh^2 x}{\cosh^2 x} \qquad {\color{Gray}\cosh^2x-\sinh^2x=1}\\
+        & = \frac{1}{\cosh^2x}\\
+        & = \sech^2 x\\
+\end{flalign*}
+
+$f:y=\tanh x$
+\begin{flalign*}
+    Df(x) & = D\left(\frac{e^x+e^{-x}}{e^x-e^{-x}}\right)&\\
+        & = \frac{\left(e^x-e^{-x}\right)\left(e^x-e^{-x}\right)-\left(e^x+e^{-x}\right)\left(e^x+e^{-x}\right)}{\left(e^x-e^{-x}\right)^2}\\
+        & = \frac{\left(e^x-e^{-x}\right)^2-\left(e^x+e^{-x}\right)^2}{\left(e^x-e^{-x}\right)^2} \qquad {\color{Gray}a^2-b^2=(a-b)\cdot(a+b)}\\
+        & = \frac{\left(\cancel{e^x}-e^{-x}\cancel{-e^x}-e^{-x}\right)\cdot\left(e^x-\cancel{e^{-x}}+e^x\cancel{+e^{-x}}\right)}{\left(e^x-e^{-x}\right)^2}\\
+        & = \frac{-2\cdot e^{-x}\cdot2\cdot e^x}{\left(e^x-e^{-x}\right)^2} = \frac{-4}{\left(e^x-e^{-x}\right)^2} = \frac{-(2)^2}{\left(e^x-e^{-x}\right)^2}\\
+        & = \left(\frac{-2}{e^x-e^{-x}}\right)^2\\
+        & = \left(\frac{-1}{\sinh x}\right)^2\\
+        & = -\csch^2x
+\end{flalign*}
+\begin{flalign*}
+    Df(x) & = d\left(\frac{\cosh x}{\sinh x}\right)&\\
+        & = \frac{\sinh x\cdot\sinh x+\cosh x\cdot\cosh x}{\sinh^2x}\\
+        & = \frac{-(\cosh x-\sinh x}{\sinh^2x} \qquad{\color{Gray}cosh^2x-sinh^2x=1}\\
+        & = \frac{-1}{\sinh^2x}\\
+        & = -\csch^2x\\
+\end{flalign*}
+
+
+
+
 \end{flushleft}
 \end{document}
