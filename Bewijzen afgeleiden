@@ -1,0 +1,125 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[margein=.1]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[fleqn]{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,total={170mm,257mm},left=20mm,top=20mm,}
+
+
+\title{Bewijzen afgeleiden}
+\author{kayli.deneef }
+\date{January 2021}
+
+\begin{document}
+\begin{flushleft}
+\section*{\color{Red}{Bewijzen Afgeleiden}}
+\subsection*{\color{Green}Goniometrische afgeleiden}
+
+$f:y=\sin x$
+\begin{flalign*}
+    Df(x) & =\lim_{h\rightarrow0}\frac{\sin(x+h)-\sin x}{h}&\\
+      & =\lim_{h\rightarrow 0}\frac{-{\color{ForestGreen}2}\cos(x+\frac{h}{2})\sin(\frac{-h}{2})}{h}\\
+      & = \lim_{h\rightarrow0}\frac{-\cos(x+\frac{h}{2})\sin(\frac{-h}{2})}{\frac{h}{{\color{ForestGreen}2}}}\\
+      & = \lim_{h\rightarrow0}-\cos(x+\frac{h}{2})\cdot\lim_{\frac{h}{{\color{LimeGreen}2}}\rightarrow0}\frac{-\sin(\frac{h}{2})}{\frac{h}{2}}\\
+      & = -\cos x\cdot(-1)\\
+      & = \cos x\\
+\end{flalign*}
+
+$f:y=\cos x$
+\begin{flalign*}
+    Df(x) & = \lim_{h\rightarrow0}\frac{\cos(x+h)-\cos x}{h}&\\
+        & = \lim_{h\rightarrow 0}\frac{{\color{ForestGreen}2}\sin(x+\frac{h}{2})\sin(\frac{-h}{2})}{h}\\
+        & = \lim_{h\rightarrow0}\frac{\sin(x+\frac{h}{2})\sin(\frac{-h}{2})}{\frac{h}{{\color{ForestGreen}2}}}\\
+        & = \lim_{h\rightarrow0}\sin(x+\frac{h}{2})\cdot\lim_{\frac{h}{{\color{LimeGreen}2}}\rightarrow0}\frac{-\sin(\frac{h}{2})}{\frac{h}{2}}\\
+        &= \sin x\cdot(-1)\\
+        &= -\sin x\\
+\end{flalign*}
+
+$f:y=tan x$
+\begin{flalign*}
+    Df(x) & = D\left(\frac{\sin x}{\cos x}\right)&\\
+        & = \frac{\cos x\cdot \cos x-\sin x\cdot \sin x}{\cos^2 x}\\
+        ^{\color{Magenta}GF}&=\frac{1}{\cos^2 x}\\
+\end{flalign*}
+
+$f:y=\cot x$
+\begin{flalign*}
+    Df(x) &= D\left(\frac{\cos x}{\sin x}\right)&\\
+        & = \frac{-\sin x\cdot \sin x-\cos x\cdot \cos x}{\sin^2 x}\\
+        & = \frac{-(\sin^2 x+\cos^2 x)}{\sin^2 x}\\
+        ^{\color{Magenta}GF}&=\frac{-1}{\sin^2 x}\\
+\end{flalign*}
+
+$f:y=\csc x$
+\begin{flalign*}
+    Df(x) & = D\left(\frac{1}{\sin x}\right)&\\
+        & = D((\sin x)^-1)\\
+        & = -1(\sin x)^{-2}\cdot \cos x\\
+        & = \frac{-\cos x}{\sin^2 x} = {\color{Gray}(-\cot x\cdot \csc x)}\\
+\end{flalign*}
+
+$f:y=\sec x$
+\begin{flalign*}
+    Df(x) & = D\left(\frac{1}{\cos x}\right)&\\
+        & = D((\cos x)^-1)\\
+        & = -1(\cos x)^{-2}\cdot (-\sin x)\\
+        & = \frac{\sin x}{\cos^2x} = {\color{Gray}(\tan x\cdot \sec x)}\\
+\end{flalign*}
+
+
+\subsection*{\color{Green}Logaritmische afgeleiden}
+\subsubsection*{\color{WildStrawberry}Hulpeigenschap}
+
+\begin{flalign*}
+    &\forall a \in \mathbb{R}_0^+\setminus\{1\} : \lim_{x\rightarrow0} \frac{\log_a(1+x)}{x} = \frac{1}{\ln a}&
+\end{flalign*}
+
+\underline{Bewijs:}
+\begin{flalign*}
+    &\lim_{x\rightarrow0}\frac{\log_a(1+x)}{x} = \lim_{x\rightarrow0}\frac{1}{x}\cdot \log_a (1+x) = \lim_{x\rightarrow0}\log_a (1+x)^{\frac{1}{x}} = \log_a\left(\lim_{x\rightarrow0}(1+x)^\frac{1}{x}\right) = \log_a e=\frac{1}{\ln a}&\\
+\end{flalign*}
+
+$f:y=\log_a x$\\ 
+$\forall a\in \mathbb{R}_0^+\setminus\{1\};\forall x\in\mathbb{R}_0^+:Df(x)=\frac{1}{x}\cdot\frac{1}{\ln x}$
+\begin{flalign*}
+    Df(x) & = \lim_{\Delta x\rightarrow0}\frac{\log_{a}(x+\Delta x)-\log_a x}{\Delta x}&\\
+        & = \lim_{\Delta x\rightarrow0}\frac{\log_a\left(\frac{(x+\Delta x)}{x}\right)}{\Delta x}\\
+        & = \lim_{\Delta x\rightarrow0}{\color{LimeGreen}\frac{1}{x}}\cdot\frac{\log_a\left(1+\frac{1}{x}\right)}{\frac{\Delta x}{\color{LimeGreen}x}}\\
+        & = \frac{1}{x}\cdot\lim_{\frac{\Delta x}{\color{LimeGreen}x}}\frac{\log_a\left(1+\frac{1}{x}\right)}{\frac{\Delta x}{x}}\\
+        & = \frac{1}{x}\cdot\frac{1}{\ln a}\\
+\end{flalign*}
+\newpage
+
+\subsection*{\color{Green}Exponentiële afgeleiden}
+
+$f:y=a^x$\\
+$\forall a \in \mathbb{R}_0^+\setminus\{1\};\forall x \in \mathbb{R}: D(a^)x=a^x\cdot\frac{1}{\ln x}$
+\begin{flalign*}
+    &\forall x \in \mathbb{R}: \log_a a^x=x &\\
+    \Rightarrow &\forall x \in \mathbb{R}: D\left(\log_a a^x\right) = D(x)\\
+    \Rightarrow &\forall x \in \mathbb{R}: \frac{1}{a^x\cdot\ln a}\cdot D(a^x) = 1\\
+    \Rightarrow &\forall x \in \mathbb{R}: D(a^x) = a^x\cdot\ln a
+\end{flalign*}
+
+
+\subsection*{\color{Green}Hyperbolische afgeleiden}
+
+$f:y=\sinh x $
+\begin{flalign*}
+    Df(x) & = D\left(\frac{e^x-e^{-x}}{2}\right)&\\
+        & = \frac{1}{2}\cdot e^x+e^{-x}\\
+        & = \frac{e^x+e^{-x}}{2}\\
+        & = \cosh x\\
+\end{flalign*}
+
+$f:y=\cosh x$
+\begin{flalign*}
+   Df(x) & = D\left(\frac{e^x+e^{-x}}{2}\right)&\\
+        & = \frac{1}{2}\cdot e^x-e^{-x}\\
+        & = \frac{e^x-e^{-x}}{2}\\
+        & = \sinh x
+\end{flalign*}
+\end{flushleft}
+\end{document}
