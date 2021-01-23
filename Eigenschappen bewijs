@@ -1,0 +1,69 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[margein=.1]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[fleqn]{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,total={170mm,257mm},left=20mm,top=20mm,}
+
+\title{Bewijzen eigenschappen}
+\author{kayli.deneef }
+\date{January 2021}
+
+\begin{document}
+\begin{flushleft}
+ 
+\section*{\color{Red}Bewijzen eigenschappen}
+\subsection*{\color{Green}Cyclometrische eigenschappen}
+
+\subsection*{\color{Green}Logaritmische eigenschappen}
+$\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+:\log_a(x\cdot y) = \log_a x + \log_a y$
+\begin{flalign*}
+    \log_a (x\cdot y) & = \log_a \left(a^{\log_a x}\cdot a^{\log_a y}\right)&\\
+        & = \log_a \left(a^{\log_a x + \log_a y}\right)\\
+        & = \log_a x + \log_a y\\
+        & = R.L.\\
+\end{flalign*}
+
+$\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+:\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y$
+\begin{flalign*}
+    \log_a \left(\frac{x}{y}\right) & = \log_a \left(\frac{a^{\log_a x}}{ a^{\log_a y}}\right)&\\
+        & = \log_a \left(a^{\log_a x - \log_a y}\right)\\
+        & = \log_a x - \log_a y\\
+        & = R.L.\\
+\end{flalign*}
+
+$\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+; \forall p \in \mathbb{R}:\log_a x^p = p \cdot\log_a x$
+\begin{flalign*}
+    \log_a x^p & = \log_a \left(a^{\log_a x}\right) ^p&\\
+    & = \log_a\left( a^{p\cdot\log_a x}\right)\\
+    & = p \cdot\log_ax\\
+\end{flalign*}
+
+$\forall a, b \in \mathbb{R}_0^+\setminus\{1\}; \forall x \in \mathbb{R}^+_0: \log_a x = \log_a b \cdot\log_b x$ {\color{Gray}(Combinatieregel)}
+\begin{flalign*}
+    \log_a x & = \log_a b^{\log_b x}&\\
+    & = \log_b x \cdot\log_a b\\
+    & = R.L.\\
+\end{flalign*}
+
+$\forall a, b \in \mathbb{R}_0^+\setminus\{1\}: \log_a b = \frac{1}{\log_b a}$ {\color{Gray}(Omkeerregel)}
+\begin{flalign*}
+    &\text{We vertrekken vanuit de combinatie regel en stellen x gelijk aan a}&\\
+    &\log_a a  = \log_a b\cdot\log_b a &\\
+    &\Leftrightarrow   1 = \log_a b\cdot\log_b a\\
+    &\Leftrightarrow \log_a b = \frac{1}{\log_b a}\\
+\end{flalign*}
+
+$\forall a, b \in \mathbb{R}_0^+\setminus\{1\}; \forall x \in \mathbb{R}^+_0: \log_a x = \frac{\log_b x}{\log__b a}$ {\color{Gray}(Wisselen van grondtal)}
+\begin{flalign*}
+    &\text{We vertrekken vanuit de combinatie regel}&\\
+    &\log_a x  = \log_a b\cdot\log_b x &\\
+    &\Leftrightarrow \log_a x = \frac{1}{\log_b a}\cdot\log_b x \text{  We passen de omkeerregel toe}\\
+    &\Leftrightarrow \log_a x = \frac{\log_b x}{\log_b a}\\
+\end{flalign*}
+
+
+\end{flushleft}
+\end{document}
