@@ -5,6 +5,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[fleqn]{amsmath}
 \usepackage{geometry}
+\usepackage{cancel}
 \geometry{a4paper,total={170mm,257mm},left=20mm,top=20mm,}
 
 \title{Bewijzen eigenschappen}
@@ -16,6 +17,16 @@
  
 \section*{\color{Red}Bewijzen eigenschappen}
 \subsection*{\color{Green}Cyclometrische eigenschappen}
+
+\subsection*{\color{Green}Hyperbolische eigenschappen}
+$\forall x \in \mathbb{R}: \cosh^2 x-\sinh^2 x = 1$
+\begin{flalign*}
+    \cosh^2x-\sinh^2x & = \left(\frac{e^x+e^{-x}}{2}\right)^2-\left(\frac{e^x-e^{-x}}{2}\right)^2 &\\
+        & = \frac{\cancel{e^{2x}}+2\cdot \overbrace{e^x\cdot e^{-x}}^1+\cancel{e^{-2x}}}{4}-\frac{\cancel{e^{2x}}-2\cdot\overbrace{e^x\cdot e^{-x}}^1+\cancel{e^{-2x}}}{4}\\
+        & = \frac{1}{2}-\frac{-1}{2}\\
+        & = 1
+\end{flalign*}
+
 
 \subsection*{\color{Green}Logaritmische eigenschappen}
 $\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+:\log_a(x\cdot y) = \log_a x + \log_a y$
