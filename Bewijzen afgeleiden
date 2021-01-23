@@ -82,7 +82,7 @@ $f:y=\sec x$
 \end{flalign*}
 
 $f:y=\log_a x$\\ 
-$\forall a\in \mathbb{R}_0^+\setminus\{1\};\forall x\in\mathbb{R}_0^+:Df(x)=\frac{1}{x}\cdot\frac{1}{\ln x}$
+$\forall a\in \mathbb{R}_0^+\setminus\{1\};\forall x\in\mathbb{R}_0^+:Df(x)=\frac{1}{x\cdot\ln x}$
 \begin{flalign*}
     Df(x) & = \lim_{\Delta x\rightarrow0}\frac{\log_{a}(x+\Delta x)-\log_a x}{\Delta x}&\\
         & = \lim_{\Delta x\rightarrow0}\frac{\log_a\left(\frac{(x+\Delta x)}{x}\right)}{\Delta x}\\
