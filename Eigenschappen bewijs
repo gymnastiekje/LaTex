@@ -2,10 +2,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margein=.1]{geometry}
 \usepackage{amsmath, amssymb}
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[fleqn]{amsmath}
 \usepackage{geometry}
-\usepackage{cancel}
+\DeclareMathOperator{\Bgsin}{Bgsin}
+\DeclareMathOperator{\Bgcos}{Bgcos}
+\DeclareMathOperator{\Bgtan}{Bgtan}
+\DeclareMathOperator{\Bgcot}{Bgcot}
+\usepackage{cancel} %Om tekst de doorstrepen
+\usepackage{tikz} 
+\usepackage{tkz-euclide}
+\usetikzlibrary{angles, quotes}
 \geometry{a4paper,total={170mm,257mm},left=20mm,top=20mm,}
 
 \title{Bewijzen eigenschappen}
@@ -17,6 +24,51 @@
  
 \section*{\color{Red}Bewijzen eigenschappen}
 \subsection*{\color{Green}Cyclometrische eigenschappen}
+{\color{BrickRed}\underline {Eigenschap 1}}\\
+{\color{magenta}\underline{$\Bgsin x$}}\\ %"\\"Nodig want ander verspringt het.
+$\begin{aligned}
+    &\sin(\Bgsin x) = x\\
+    &\cos(\Bgsin x) = \sqrt{1-x^2}\\
+    &\tan(\Bgsin x) = \frac{x}{\sqrt{1-x^2}}\\
+    &\cot(\Bgsin x) = \frac{\sqrt{1-x^2}}{x}\\
+    &{\color{LimeGreen}\underline{Berekeningen}}\\
+    &{\color{LimeGreen} \frac{\tan x}{1} = \frac{x}{\sqrt{1-x^2}}}\\
+    &{\color{LimeGreen} \frac{\cot x}{1} = \frac{\sqrt{1-x^2}}{x}}\\[\baselineskip]
+\end{aligned}$
+\hfill
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+%Het assenstelsel en cirkel
+    \draw[->] (-3,0)--(4,0) node[below] {$x$}; 
+    \draw[->] (0,-3)--(0,3) node[left] {$y$};
+    \draw[->] (2.5,-3)--(2.5,3) node[right] {$\tan x$};
+    \draw[->] (-3,2.5)--(4,2.5) node[below] {$\cot x$};
+    \draw (0,0) circle (2.5);
+%De schaal van de assen
+    \node[below] at (2.7,0) {1};
+    \node[right] at (0,2.7) {1};
+    \node[below] at (-2.7,0) {-1};
+    \node[right] at (0,-2.7) {-1};
+    \node[left]  at (2.5, 2.7) {1};
+%De coördinaten --> met/zonder label
+    \coordinate[label=above:M]  (M) at (30:2.7); %(Hoek:Straal)
+    \coordinate                 (O) at (0:0); 
+    \coordinate                 (A) at (2, 0); %(x, y)
+    \draw (O) -- (M);
+%De puntjes
+    \filldraw (0,0) circle (1.5pt);
+    \filldraw (30:2.5) circle (1.5pt);
+    \pic[draw,"$x$",angle radius=30pt,angle eccentricity=1.2] {angle = A--O--M};
+
+\end{tikzpicture}
+
+
+{\color{Magenta}\underline{$\Bgcos x$}}
+\begin{flalign*}
+    &\sin(\Bgcos x) = \sqrt{1-x^2}&\\
+    &\cos(\Bgcos x) = x\\
+    &\tan(\Bgcos x) = \\
+    &\cot(\Bgcos x) = \\
+\end{flalign*}
 
 \subsection*{\color{Green}Hyperbolische eigenschappen}
 $\forall x \in \mathbb{R}: \cosh^2 x-\sinh^2 x = 1$
@@ -26,7 +78,6 @@ $\forall x \in \mathbb{R}: \cosh^2 x-\sinh^2 x = 1$
         & = \frac{1}{2}-\frac{-1}{2}\\
         & = 1
 \end{flalign*}
-
 
 \subsection*{\color{Green}Logaritmische eigenschappen}
 $\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+:\log_a(x\cdot y) = \log_a x + \log_a y$
@@ -45,7 +96,7 @@ $\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+:\log
         & = R.L.\\
 \end{flalign*}
 
-$\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+; \forall p \in \mathbb{R}:\log_a x^p = p \cdot\log_a x$
+$\forall a \in \mathbb{R}_0^+\setminus\{1\}; \forall x,y \in \mathbb{R}_0^+; \forall p \in \mathbb{R}:\log_a x^pS = p \cdot\log_a x$
 \begin{flalign*}
     \log_a x^p & = \log_a \left(a^{\log_a x}\right) ^p&\\
     & = \log_a\left( a^{p\cdot\log_a x}\right)\\
@@ -67,11 +118,12 @@ $\forall a, b \in \mathbb{R}_0^+\setminus\{1\}: \log_a b = \frac{1}{\log_b a}$ {
     &\Leftrightarrow \log_a b = \frac{1}{\log_b a}\\
 \end{flalign*}
 
-$\forall a, b \in \mathbb{R}_0^+\setminus\{1\}; \forall x \in \mathbb{R}^+_0: \log_a x = \frac{\log_b x}{\log__b a}$ {\color{Gray}(Wisselen van grondtal)}
+$\forall a, b \in \mathbb{R}_0^+\setminus\{1\}; \forall x \in \mathbb{R}^+_0: \log_a x = \frac{\log_b x }{\log_b a }$ {\color{Gray}(Wisselen van grondtal)}
 \begin{flalign*}
     &\text{We vertrekken vanuit de combinatie regel}&\\
     &\log_a x  = \log_a b\cdot\log_b x &\\
-    &\Leftrightarrow \log_a x = \frac{1}{\log_b a}\cdot\log_b x \text{  We passen de omkeerregel toe}\\
+    &\text{We passen de omkeerregel toe:}\\
+    &\Leftrightarrow \log_a x = \frac{1}{\log_b a}\cdot\log_b x \\
     &\Leftrightarrow \log_a x = \frac{\log_b x}{\log_b a}\\
 \end{flalign*}
 
